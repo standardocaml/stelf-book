@@ -1,2 +1,1 @@
-# stelf-book
-The STELF book
+# The Main Repo for the STELF Book
