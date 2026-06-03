@@ -10,7 +10,9 @@ jobs:
       - uses: typst-community/setup-typst@v5
       # 🎉 Now Typst is installed!
       - run: typst compile src/stelf.typ main.pdf
-      - run: typst compile --features html src/stelf.typ main.html
+      - uses: SichangHe/pdf2htmlEX-action@v0.0.2
+        with:
+          arguments: main.pdf main.html
       - uses: actions/upload-artifact@v6
         with:
           name: book
