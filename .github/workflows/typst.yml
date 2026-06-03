@@ -19,22 +19,16 @@ jobs:
       - uses: typst-community/setup-typst@v5
       # 🎉 Now Typst is installed!
       - run: typst compile src/stelf.typ main.pdf
-      - uses: SichangHe/pdf2htmlEX-action@v0.0.2
-        with:
-          arguments: main.pdf main.html
+     
       - uses: actions/upload-artifact@v6
         with:
           name: book
           path: main.pdf
-      - uses: actions/upload-artifact@v6
-        with:
-          name: page 
-          path: main.html
+     
       - name: Prepare Pages site
         run: |
           mkdir -p site
-          cp main.html site/index.html
-          cp main.pdf site/main.pdf
+          cp main.pdf site/index.pdf
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
